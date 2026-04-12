@@ -9,6 +9,7 @@ const SAREE_TYPES = ['Pure South Cotton', 'Kanchipuram Silk', 'Maheshwari', 'Poc
 const HERO_IMAGE = 'https://dbhfuzhpdbiamsgfzzop.supabase.co/storage/v1/object/public/product-images/Rajasthani%20mural%20in%20ancient%20temple.png'
 const HERITAGE_IMAGE = 'https://dbhfuzhpdbiamsgfzzop.supabase.co/storage/v1/object/public/product-images/_%20(2).jpeg'
 const SAREES_CAT = 'https://dbhfuzhpdbiamsgfzzop.supabase.co/storage/v1/object/public/product-images/Price_-%2012300_-__Pure%20handloom%20Kanchipuram%20silk%20sarees___Silk%20mark%20certified_.jpeg'
+const DRESSES_CAT = 'https://dbhfuzhpdbiamsgfzzop.supabase.co/storage/v1/object/public/product-images/Maheshwari%20half%20cotton%20half%20silk%20zari%20Top%20with%20Dupatta%20Sets.jpeg'
 
 export default function Home() {
   const [featured, setFeatured] = useState([])
@@ -69,12 +70,13 @@ export default function Home() {
               <h3 className="font-serif text-2xl">Sarees</h3>
             </div>
           </div>
-          <div className="relative overflow-hidden cursor-pointer group aspect-[3/4] bg-cream heritage-pattern flex items-center justify-center col-span-1">
-            <div className="text-center">
-              <p className="font-serif text-2xl text-heritage/40">Dresses</p>
-              <p className="font-sans text-xs tracking-widest uppercase text-heritage/30 mt-1">Coming Soon</p>
-            </div>
-          </div>
+         <div className="relative overflow-hidden cursor-pointer group aspect-[3/4]" onClick={() => window.location.href='/shop?type=Dresses'}>
+           <img src={DRESSES_CAT} alt="Dresses" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+           <div className="absolute inset-0 bg-heritage/30 group-hover:bg-heritage/10 transition-colors" />
+           <div className="absolute bottom-4 left-4 text-white">
+             <h3 className="font-serif text-2xl">Dresses</h3>
+           </div>
+        </div>
         </div>
       </section>
 
