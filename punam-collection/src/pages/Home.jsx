@@ -4,7 +4,7 @@ import { ArrowRight, Star } from 'lucide-react'
 import { supabase } from '../lib/supabase'
 import ProductCard from '../components/ProductCard'
 
-const SAREE_TYPES = ['Pure South Cotton', 'Kanchipuram Silk', 'Maheshwari', 'Pochampally Pure Silk', 'Chanderi Silk', 'Semi South Silk', 'Pure Silk Handloom', 'Ikkat Cotton', 'Banarasi Silk', 'Mysore Silk']
+const SAREE_TYPES = ['Pure South Cotton', 'Kanchipuram Silk', 'Maheshwari', 'Pochampally Pure Silk', 'Chanderi Silk', 'Semi South Silk', 'Pure Silk Handloom', 'Ikkat Cotton', 'Cotton Silk', 'Gadhwal Cotton', 'Pure Tissue Chanderi Silk']
 
 const HERO_IMAGE = 'https://cdn.pixabay.com/photo/2019/11/07/20/20/saree-4609812_1280.jpg'
 const HERITAGE_IMAGE = 'https://cdn.pixabay.com/photo/2021/08/10/09/10/saree-6535277_1280.jpg'
