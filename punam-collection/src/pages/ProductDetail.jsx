@@ -13,6 +13,7 @@ export default function ProductDetail() {
   const [product, setProduct] = useState(null)
   const [loading, setLoading] = useState(true)
   const [added, setAdded] = useState(false)
+  const [mainImage, setMainImage] = useState(null)
 
   useEffect(() => {
     supabase.from('products').select('*').eq('id', id).single()
@@ -40,12 +41,23 @@ export default function ProductDetail() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
         {/* Image */}
         <div className="relative">
-          <div className="aspect-[3/4] overflow-hidden bg-cream heritage-pattern">
-            {product.image_url ? (
-              <img src={product.image_url} alt={product.name} className="w-full h-full object-cover" />
-            ) : (
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="font-serif text-6xl text-gold/20">✦</span>
+          <div>
+            <div className="aspect-[3/4] overflow-hidden bg-cream heritage-pattern">
+              {product.image_url ? (
+                <img src={mainImage || product.image_url} alt={product.name} className="w-full h-full object-cover" />
+              ) : (
+                <div className="w-full h-full flex items-center justify-center">
+                  <span className="font-serif text-6xl text-gold/20">✦</span>
+                </div>
+              )}
+            </div>
+            {product.images?.length > 1 && (
+              <div className="flex gap-2 mt-2">
+                {product.images.map((url, i) => (
+                  <img key={i} src={url} alt={`${product.name} ${i+1}`}
+                    onClick={() => setMainImage(url)}
+                    className="w-16 h-20 object-cover cursor-pointer border-2 hover:border-maroon transition-all" />
+                ))}
               </div>
             )}
           </div>
