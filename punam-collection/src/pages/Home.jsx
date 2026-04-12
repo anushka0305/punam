@@ -6,7 +6,7 @@ import ProductCard from '../components/ProductCard'
 
 const SAREE_TYPES = ['Pure South Cotton', 'Kanchipuram Silk', 'Maheshwari', 'Pochampally Pure Silk', 'Chanderi Silk', 'Semi South Silk', 'Pure Silk Handloom', 'Ikkat Cotton', 'Cotton Silk', 'Gadhwal Cotton', 'Pure Tissue Chanderi Silk']
 
-const HERO_IMAGE = 'silk-https://dbhfuzhpdbiamsgfzzop.supabase.co/storage/v1/object/public/product-images/ChatGPT%20Image%20Apr%2013,%202026,%2012_07_17%20AM.png'
+const HERO_IMAGE = 'https://dbhfuzhpdbiamsgfzzop.supabase.co/storage/v1/object/public/product-images/Rajasthani%20mural%20in%20ancient%20temple.png'
 const HERITAGE_IMAGE = 'https://dbhfuzhpdbiamsgfzzop.supabase.co/storage/v1/object/public/product-images/_%20(2).jpeg'
 const SAREES_CAT = 'https://dbhfuzhpdbiamsgfzzop.supabase.co/storage/v1/object/public/product-images/Price_-%2012300_-__Pure%20handloom%20Kanchipuram%20silk%20sarees___Silk%20mark%20certified_.jpeg'
 
