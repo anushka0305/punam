@@ -293,29 +293,31 @@ export default function AdminDashboard() {
               <button onClick={() => setShowForm(false)} className="text-heritage hover:text-maroon"><X size={20} /></button>
             </div>
             <div className="p-6 space-y-5">
-              {/* Image Upload */}
-              <div>
-                <label className="font-sans text-xs tracking-widest uppercase text-heritage/60 block mb-2">Product Image</label>
-                <div className="border-2 border-dashed border-[#D0C4B0] p-4 text-center">
-                  {form.image_url ? (
-                    <div className="relative">
-                      <img src={form.image_url} alt="" className="w-32 h-40 object-cover mx-auto" />
-                      <button onClick={() => setForm(f => ({ ...f, image_url: '' }))} className="absolute top-0 right-0 bg-maroon text-white w-6 h-6 flex items-center justify-center">
-                        <X size={12} />
-                      </button>
-                    </div>
-                  ) : (
-                    <label className="cursor-pointer">
-                      <input type="file" accept="image/*" onChange={uploadImage} className="hidden" />
-                      <div className="font-sans text-sm text-heritage/50">
-                        {uploading ? 'Uploading...' : 'Click to upload image'}
-                      </div>
-                    </label>
-                  )}
-                </div>
-                <input type="text" value={form.image_url} onChange={e => setForm(f => ({ ...f, image_url: e.target.value }))}
-                  className="input-field mt-2" placeholder="Or paste image URL" />
+             {/* Image Upload */}
+      <div>
+        <label className="font-sans text-xs tracking-widests uppercase text-heritage/60 block mb-2">Product Images (up to 5)</label>
+        <div className="border-2 border-dashed border-[#D0C4B0] p-4 text-center">
+          <label className="cursor-pointer">
+            <input type="file" accept="image/*" multiple onChange={uploadImages} className="hidden" />
+            <div className="font-sans text-sm text-heritage/50">
+              {uploading ? 'Uploading...' : 'Click to upload images'}
+            </div>
+          </label>
+        </div>
+        {form.images?.length > 0 && (
+          <div className="flex gap-2 mt-2 flex-wrap">
+            {form.images.map((url, i) => (
+              <div key={i} className="relative">
+                <img src={url} alt="" className="w-20 h-24 object-cover" />
+                <button onClick={() => setForm(f => ({ ...f, images: f.images.filter((_, j) => j !== i) }))}
+                  className="absolute top-0 right-0 bg-maroon text-white w-5 h-5 flex items-center justify-center">
+                  <X size={10} />
+                </button>
               </div>
+            ))}
+          </div>
+        )}
+      </div>
 
               {/* Name */}
               <div>
