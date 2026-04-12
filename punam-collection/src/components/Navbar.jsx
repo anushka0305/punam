@@ -22,7 +22,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link to="/" className="font-serif text-xl sm:text-2xl font-semibold text-heritage tracking-wide">
-            Punam's<br className="hidden sm:block" /><span className="text-base sm:text-lg font-normal">Collection</span>
+            Punam's <br className="hidden sm:block" /><span className="text-base sm:text-lg font-normal">Collection</span>
           </Link>
 
           {/* Desktop Nav */}
