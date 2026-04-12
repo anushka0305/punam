@@ -26,14 +26,6 @@ export default function Signup() {
     }
   }
 
-  const Field = ({ label, name, type = 'text', placeholder, required = false }) => (
-    <div>
-      <label className="font-sans text-xs tracking-widest uppercase text-heritage/60 block mb-2">{label}</label>
-      <input type={type} value={form[name]} onChange={update(name)}
-        className="input-field" placeholder={placeholder} required={required} />
-    </div>
-  )
-
   return (
     <div className="min-h-screen bg-cream heritage-pattern flex items-center justify-center px-4 py-16">
       <div className="bg-white w-full max-w-md p-8 sm:p-10 shadow-sm">
@@ -45,14 +37,35 @@ export default function Signup() {
         {error && <div className="bg-red-50 border border-red-200 text-red-700 text-sm font-sans px-4 py-3 mb-6">{error}</div>}
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          <Field label="Full Name" name="full_name" placeholder="Your full name" required />
-          <Field label="Email" name="email" type="email" placeholder="your@email.com" required />
-          <Field label="Password" name="password" type="password" placeholder="Min 6 characters" required />
-          <Field label="Phone / WhatsApp" name="phone" placeholder="+91 98765 43210" required />
-          <Field label="Address" name="address" placeholder="House no, Street, Area" />
+          <div>
+            <label className="font-sans text-xs tracking-widest uppercase text-heritage/60 block mb-2">Full Name</label>
+            <input type="text" value={form.full_name} onChange={update('full_name')} className="input-field" placeholder="Your full name" required />
+          </div>
+          <div>
+            <label className="font-sans text-xs tracking-widest uppercase text-heritage/60 block mb-2">Email</label>
+            <input type="email" value={form.email} onChange={update('email')} className="input-field" placeholder="your@email.com" required />
+          </div>
+          <div>
+            <label className="font-sans text-xs tracking-widest uppercase text-heritage/60 block mb-2">Password</label>
+            <input type="password" value={form.password} onChange={update('password')} className="input-field" placeholder="Min 6 characters" required />
+          </div>
+          <div>
+            <label className="font-sans text-xs tracking-widest uppercase text-heritage/60 block mb-2">Phone / WhatsApp</label>
+            <input type="text" value={form.phone} onChange={update('phone')} className="input-field" placeholder="+91 98765 43210" required />
+          </div>
+          <div>
+            <label className="font-sans text-xs tracking-widest uppercase text-heritage/60 block mb-2">Address</label>
+            <input type="text" value={form.address} onChange={update('address')} className="input-field" placeholder="House no, Street, Area" />
+          </div>
           <div className="grid grid-cols-2 gap-3">
-            <Field label="City" name="city" placeholder="City" />
-            <Field label="Pincode" name="pincode" placeholder="400001" />
+            <div>
+              <label className="font-sans text-xs tracking-widest uppercase text-heritage/60 block mb-2">City</label>
+              <input type="text" value={form.city} onChange={update('city')} className="input-field" placeholder="City" />
+            </div>
+            <div>
+              <label className="font-sans text-xs tracking-widest uppercase text-heritage/60 block mb-2">Pincode</label>
+              <input type="text" value={form.pincode} onChange={update('pincode')} className="input-field" placeholder="400001" />
+            </div>
           </div>
           <button type="submit" disabled={loading} className="btn-primary w-full mt-2">
             {loading ? 'Creating account...' : 'Create Account'}
