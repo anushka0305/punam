@@ -24,7 +24,7 @@ export default function AdminLogin() {
       }
       navigate('/admin/dashboard')
     } catch (err) {
-      setError('Invalid credentials')
+      setError(err.message || 'Invalid credentials')
       setLoading(false)
     }
   }
