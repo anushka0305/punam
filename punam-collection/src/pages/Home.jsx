@@ -75,12 +75,6 @@ export default function Home() {
               <p className="font-sans text-xs tracking-widest uppercase text-heritage/30 mt-1">Coming Soon</p>
             </div>
           </div>
-          <div className="relative overflow-hidden cursor-pointer group aspect-[3/4] bg-heritage/5 heritage-pattern flex items-center justify-center col-span-2 md:col-span-1">
-            <div className="text-center">
-              <p className="font-serif text-2xl text-heritage/40">Accessories</p>
-              <p className="font-sans text-xs tracking-widest uppercase text-heritage/30 mt-1">Coming Soon</p>
-            </div>
-          </div>
         </div>
       </section>
 
