@@ -12,7 +12,7 @@ const SAREE_TYPES = [
 
 const STATUS_OPTIONS = ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled']
 
-const EMPTY_PRODUCT = { name: '', type: SAREE_TYPES[0], price: '', discount: 0, description: '', image_url: '', in_stock: true, featured: false }
+const EMPTY_PRODUCT = { name: '', type: SAREE_TYPES[0], price: '', discount: 0, description: '', image_url: '', images: [], in_stock: true, featured: false }
 
 export default function AdminDashboard() {
   const { user, isAdmin, signOut } = useAuth()
@@ -53,20 +53,23 @@ export default function AdminDashboard() {
   function openAdd() { setForm(EMPTY_PRODUCT); setEditProduct(null); setShowForm(true) }
   function openEdit(p) { setForm({ ...p }); setEditProduct(p.id); setShowForm(true) }
 
-  async function uploadImage(e) {
-    const file = e.target.files[0]
-    if (!file) return
-    setUploading(true)
+  async function uploadImages(e) {
+  const files = Array.from(e.target.files)
+  if (!files.length) return
+  setUploading(true)
+  const urls = []
+  for (const file of files) {
     const ext = file.name.split('.').pop()
-    const path = `products/${Date.now()}.${ext}`
+    const path = `products/${Date.now()}-${Math.random().toString(36).slice(2)}.${ext}`
     const { error } = await supabase.storage.from('product-images').upload(path, file)
     if (!error) {
       const { data } = supabase.storage.from('product-images').getPublicUrl(path)
-      setForm(f => ({ ...f, image_url: data.publicUrl }))
+      urls.push(data.publicUrl)
     }
-    setUploading(false)
   }
-
+  setForm(f => ({ ...f, images: [...(f.images || []), ...urls], image_url: urls[0] || f.image_url }))
+  setUploading(false)
+}
   async function saveProduct() {
     if (!form.name || !form.price) return alert('Name and price are required')
     setSaving(true)
