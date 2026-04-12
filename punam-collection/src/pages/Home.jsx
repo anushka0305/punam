@@ -6,9 +6,9 @@ import ProductCard from '../components/ProductCard'
 
 const SAREE_TYPES = ['Pure South Cotton', 'Kanchipuram Silk', 'Maheshwari', 'Pochampally Pure Silk', 'Chanderi Silk', 'Semi South Silk', 'Pure Silk Handloom', 'Ikkat Cotton', 'Cotton Silk', 'Gadhwal Cotton', 'Pure Tissue Chanderi Silk']
 
-const HERO_IMAGE = 'https://cdn.pixabay.com/photo/2019/11/07/20/20/saree-4609812_1280.jpg'
-const HERITAGE_IMAGE = 'https://cdn.pixabay.com/photo/2021/08/10/09/10/saree-6535277_1280.jpg'
-const SAREES_CAT = 'https://cdn.pixabay.com/photo/2019/11/07/20/20/saree-4609812_1280.jpg'
+const HERO_IMAGE = 'silk-https://dbhfuzhpdbiamsgfzzop.supabase.co/storage/v1/object/public/product-images/ChatGPT%20Image%20Apr%2013,%202026,%2012_07_17%20AM.png'
+const HERITAGE_IMAGE = 'https://dbhfuzhpdbiamsgfzzop.supabase.co/storage/v1/object/public/product-images/_%20(2).jpeg'
+const SAREES_CAT = 'https://dbhfuzhpdbiamsgfzzop.supabase.co/storage/v1/object/public/product-images/Price_-%2012300_-__Pure%20handloom%20Kanchipuram%20silk%20sarees___Silk%20mark%20certified_.jpeg'
 
 export default function Home() {
   const [featured, setFeatured] = useState([])
