@@ -63,7 +63,7 @@ export default function Home() {
           <div className="gold-divider" />
         </div>
         <div className="grid grid-cols-2 gap-4 sm:gap-6">
-          <div className="relative overflow-hidden cursor-pointer group aspect-[3/4]" onClick={() => window.location.href='/shop'}>
+          <div className="relative overflow-hidden cursor-pointer group aspect-[3/4]" onClick={() => window.location.href='/shop?category=sarees'}>
             <img src={SAREES_CAT} alt="Sarees" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
             <div className="absolute inset-0 bg-heritage/30 group-hover:bg-heritage/10 transition-colors" />
             <div className="absolute bottom-4 left-4 text-white">
