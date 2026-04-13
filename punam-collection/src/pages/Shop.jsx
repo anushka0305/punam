@@ -32,7 +32,11 @@ useEffect(() => {
   async function fetchProducts() {
     setLoading(true)
     let query = supabase.from('products').select('*').eq('in_stock', true)
-    if (activeType !== 'All Sarees') query = query.eq('type', activeType)
+    if (activeType !== 'All Sarees') {
+    query = query.eq('type', activeType)
+    } else {
+    query = query.neq('type', 'Dresses')
+    }
     if (isSale) query = query.gt('discount', 0)
     if (sortBy === 'price_asc') query = query.order('price', { ascending: true })
     else if (sortBy === 'price_desc') query = query.order('price', { ascending: false })
