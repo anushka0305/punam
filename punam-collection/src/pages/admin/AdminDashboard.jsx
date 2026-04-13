@@ -7,7 +7,7 @@ import { useAuth } from '../../context/AuthContext'
 const SAREE_TYPES = [
   'Pure South Cotton', 'Semi South Silk', 'Pure Silk Handloom',
   'Chanderi Silk', 'Kanchipuram Silk', 'Pochampally Pure Silk',
-  'Maheshwari', 'Ikkat Cotton', 'Banarasi Silk', 'Mysore Silk'
+  'Maheshwari', 'Ikkat Cotton', 'Cotton Silk'
 ]
 
 const STATUS_OPTIONS = ['pending', 'confirmed', 'shipped', 'delivered', 'cancelled']
@@ -334,7 +334,12 @@ export default function AdminDashboard() {
                 <label className="font-sans text-xs tracking-widest uppercase text-heritage/60 block mb-2">Saree Type *</label>
                 <select value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))}
                   className="input-field">
-                  {allTypes.map(t => <option key={t} value={t}>{t}</option>)}
+                  <optgroup label="Sarees">
+                    {SAREE_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+                  </optgroup>
+                  <optgroup label="Dresses">
+                    <option value="Dresses">Dresses</option>
+                  </optgroup>
                 </select>
               </div>
 
