@@ -14,15 +14,20 @@ export default function Shop() {
   const [searchParams, setSearchParams] = useSearchParams()
   const [products, setProducts] = useState([])
   const [loading, setLoading] = useState(true)
-  const [activeType, setActiveType] = useState(typeParam || 'All Sarees')
+  const [activeType, setActiveType] = useState('All Sarees')
   const [sortBy, setSortBy] = useState('newest')
   const [showFilters, setShowFilters] = useState(false)
   const isSale = searchParams.get('sale') === 'true'
   const typeParam = searchParams.get('type')
 
-  useEffect(() => {
+useEffect(() => {
+  const typeParam = searchParams.get('type')
+  if (typeParam && typeParam !== activeType) {
+    setActiveType(typeParam)
+  } else {
     fetchProducts()
-  }, [activeType, sortBy, isSale])
+  }
+}, [activeType, sortBy, isSale, searchParams])
 
   async function fetchProducts() {
     setLoading(true)
