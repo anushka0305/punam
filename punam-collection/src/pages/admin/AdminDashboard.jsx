@@ -332,15 +332,16 @@ export default function AdminDashboard() {
               {/* Type */}
               <div>
                 <label className="font-sans text-xs tracking-widest uppercase text-heritage/60 block mb-2">Saree Type *</label>
-                <select value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))}
-                  className="input-field">
-                  <optgroup label="Sarees">
-                    {SAREE_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
-                  </optgroup>
+                  <select value={form.type} onChange={e => setForm(f => ({ ...f, type: e.target.value }))}
+                    className="input-field">
+                    <optgroup label="Sarees">
+                      {SAREE_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+                      {customTypes.map(t => <option key={t} value={t}>{t}</option>)}
+                    </optgroup>
                   <optgroup label="Dresses">
-                    <option value="Dresses">Dresses</option>
+                  <option value="Dresses">Dresses</option>
                   </optgroup>
-                </select>
+              </select>
               </div>
 
               {/* Price & Discount */}
